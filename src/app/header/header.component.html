@@ -1,0 +1,16 @@
+<ibm-header name="CIO ServiceNow" id="heading-full-navbar"  >
+    <ibm-header-navigation id="ibm-header-navigation">
+        <div *ngFor="let links of allLinksObj | keyvalue">
+            <ibm-header-menu *ngIf="links.value !== null" [title]="links.key">
+                <ibm-header-item *ngFor="let sublink of links.value" >{{ sublink }}</ibm-header-item>
+            </ibm-header-menu>
+        </div>
+<div *ngFor="let links of allLinksObj | keyvalue"><ibm-header-item  *ngIf="links.value === null">{{ links.key}}</ibm-header-item> </div>
+    </ibm-header-navigation>
+    <ibm-header-global style="margin: -1.7rem 1rem 0 0 ;">
+            <button class="userFirstAlphabetIcon" (userName)="userFirstName">{{ userFirstName[0] }}</button>
+            <ibm-header-item style="float: right;" (userName)="userFirstName">{{ userFirstName }}</ibm-header-item>
+    </ibm-header-global>
+</ibm-header>
+
+

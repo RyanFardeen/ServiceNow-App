@@ -1,10 +1,11 @@
 <div ibmGrid class="grid">
 	<div ibmRow id="homePageServicesContentsContainer">
-		<div ibmCol *ngFor="let content of allHomeServices | keyvalue"  class="homePageServicesContent">
+		<div ibmCol *ngFor="let content of allHomeServices | keyvalue"  class="homePageServicesContent" [routerLink]="['/',content.value.name.replace(' ','')]">
             <!-- <svg ibmIconHome  size="32"></svg> -->
 			<mat-icon class="homeServicesIcon">{{ content.value.icon }} </mat-icon>
             <h4>{{ content.value.name }}</h4>
-            <p>{{ content.value.serviceContent }}</p></div>
+            <p>{{ content.value.serviceContent }}</p>
+		</div>
 	</div>
 	<div ibmRow></div>
 </div>

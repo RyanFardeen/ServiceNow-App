@@ -12,4 +12,8 @@ export class HeaderComponent {
     this.userFirstName = service.getUserName();
     this.allLinksObj = service.getAllLinks();
   }
+
+  generateLink(sublink: string){
+    return '/'+sublink.replace(' ','');
+  }
 }

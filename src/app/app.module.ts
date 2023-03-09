@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,13 +26,21 @@ import { HomeModule } from "@carbon/icons-angular"
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ApiManagementComponent } from './api-management/api-management.component';
+
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { FeaturesComponent } from './features/features.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FrontPageSearchbarComponent,
-    HomePageServicesContentsComponent
+    HomePageServicesContentsComponent,
+    ApiManagementComponent,
+    HomeComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomeModule,
     MatIconModule, 
     MatInputModule, 
-    MatFormFieldModule
+    MatFormFieldModule,
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: ':feature', component: FeaturesComponent},
+      {path: 'APIManagement', component: ApiManagementComponent},
+      {path: '**', component: PageNotFoundComponent}
+    ])
   ],
   providers: [HeaderNavbarLinksService, IconService, HomePageServicesContentServiceService],
   bootstrap: [AppComponent]

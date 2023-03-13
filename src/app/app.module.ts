@@ -30,7 +30,6 @@ import { ApiManagementComponent } from './api-management/api-management.componen
 
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { FeaturesComponent } from './features/features.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +38,7 @@ import { FeaturesComponent } from './features/features.component';
     FrontPageSearchbarComponent,
     HomePageServicesContentsComponent,
     ApiManagementComponent,
-    HomeComponent,
-    FeaturesComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +53,8 @@ import { FeaturesComponent } from './features/features.component';
     MatFormFieldModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
-      {path: ':feature', component: FeaturesComponent},
       {path: 'APIManagement', component: ApiManagementComponent},
+      // {path: ':feature', component: FeaturesComponent},
       {path: '**', component: PageNotFoundComponent}
     ])
   ],
